@@ -1,3 +1,5 @@
+
+
 let largura = window.innerWidth
 let altura = window.innerHeight
 
@@ -17,17 +19,21 @@ document.addEventListener( 'DOMContentLoaded', function(){
 
 function foto(){
     let video = document.querySelector("#webcam");
+    video.width
      
     let canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     let ctx = canvas.getContext('2d');
      
+    // ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
      
     let dataURI = canvas.toDataURL('image/jpeg'); 
-    document.querySelector("#foto").src = dataURI;
+    // document.querySelector("#foto").src = dataURI;
     document.querySelector("#base64").value = dataURI;
+
+    // downloadFile()
 }
 
 const downloadFile = () =>{
@@ -36,4 +42,19 @@ const downloadFile = () =>{
     a.href = document.querySelector('#base64').value
     a.download = nameFile
     a.click()
+
+    document.querySelector('#base64').value = null
 }
+
+// console.log(`largura: ${largura}px X altura: ${altura}px`);
+
+fetch('./conf/conf.json').then((response) => {
+    response.json().then((dados) => {
+        dados.conf.map((config) => {
+            let qtd = config.amountPictures
+            let seg = config.timerValue
+
+            console.log(`qtd: ${qtd}\nsegundos: ${seg}`);
+        })
+    })
+})

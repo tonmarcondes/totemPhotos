@@ -1,2 +1,5 @@
-# totemPhotos
-Sistema de totem de fotos para festas
+# Totem Photos
+
+Sistema de totem de fotos para eventos
+
+![Teste](./img/contagemTotem.png)

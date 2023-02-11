@@ -9,18 +9,17 @@
 </head>
 <body>
     <div class="content">
-        <video autoplay="true" id="webcam"></video>
-     
-        <button type="button" onclick="foto()" class="btn">Tirar foto e salvar</button>
-             
-        <div class="image">
-            <img src="person.svg" id="foto">
+        <div>
+            <video autoplay="true" id="webcam"></video>
         </div>
-        <!-- <form method="POST" action="imagem.php"> -->
+        <div>
+            <button type="button" onclick="foto()" class="btn">Tirar foto e salvar</button>
+        </div>
+        <div class="image">
+            <!-- <img src="person.svg" id="foto"> -->
+        </div>
             <textarea name="image_base64" id="base64"></textarea>
-                 
             <button type="submit" class="btn" onclick="downloadFile()">Enviar Imagem</button>
-        <!-- </form> -->
     </div>
 </body>
 </html>
