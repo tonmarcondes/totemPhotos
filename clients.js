@@ -4,7 +4,7 @@ window.onload = () => {
     const campo = document.getElementById("codigos")
     
     campo.addEventListener('keydown', function(e) {
-        if (e.code === 'Enter' || e.key === 13) {
+        if (e.key === 'Enter') {
             let codigo = document.querySelector('#codigos').value
             console.log(codigo);
 
