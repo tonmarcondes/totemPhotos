@@ -52,9 +52,10 @@ function setText(second, millisecond){
     document.getElementById('millisecond').innerText = millisecond;
 }
 
-const startCounter = (initialValue, intervalValue) => {
+const startCounter = (initialValue, intervalValue, amountPic) => {
     timerValue = initialValue;
     second = initialValue;
     interval = intervalValue;
+    amountPictures = amountPic;
     timer.start();
 }

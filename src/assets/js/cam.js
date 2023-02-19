@@ -1,3 +1,7 @@
+let timerInitilValue;
+let timerInterval;
+let amountPictures;
+
 const activeCamScreen = () => {
     disableSection("id-section");
     activeSection("cam-section");
@@ -7,7 +11,8 @@ const activeCamScreen = () => {
 const openCamera = () => {
     let video = document.querySelector("#webcam");
     adjustScreen();
-         
+    startCounter(timerInitilValue, timerInterval, amountPictures);
+
     if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'user', advanced: [{width: 1280, height: 720}]}})
         .then( function(stream) {
@@ -66,9 +71,9 @@ const setImgBase64InLocalStorage = (value) => {
 fetch('../conf/conf.json').then((response) => {
     response.json().then((dados) => {
         dados.conf.map((config) => {
-            let amountPictures = config.amountPictures
-            let secondsUntilStart = config.timerValue
-            let interval = config.interval
+            timerInitilValue = config.timerValue;
+            timerInterval = config.interval;
+            amountPictures = config.amountPictures;
 
             console.log(`amountPictures: ${amountPictures}\n
             secondsUntilStart: ${secondsUntilStart}\n
