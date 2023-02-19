@@ -8,14 +8,13 @@ body {
 
 section {
     width: 50%;
-    max-width: 1200px;
+    max-width: 1920px;
     margin: auto !important;
     text-align: center;
     font-size: 1.2rem;
-    border: 2px solid red;
 }
 
 #description {
-    margin-top: 50px;
+    padding-top: 200px;
 }
 

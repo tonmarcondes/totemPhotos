@@ -1,6 +1,9 @@
 /* Import Google Font - Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 :root {
     /*definir font family como variavel global montserrat*/
     --font-family: 'Montserrat', sans-serif;
@@ -14,5 +17,15 @@
 
 #secondaryTitle {
     font-size: 3rem;
-    margin: 20px 65px;
+    position: absolute;
+    top: 20px;
+    left: 120px;
+}
+
+.name-camper {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: start;
 }

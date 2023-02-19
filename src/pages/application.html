@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="../components/logo.css">
     <link rel="stylesheet" href="../components/field.css">
 
+    <!-- JavaScript File's -->
+    <script src="../assets/js/clients.js"></script>
+    <script src="../assets/js/cam.js"></script>
+    <script src="../assets/js/routes.js"></script>
+
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/eac825cd8d.js" crossorigin="anonymous"></script>
 
@@ -45,21 +50,24 @@
     <!-- Main Navigation -->
     <section>
 
-        <div id="description">
-            <h2>Digite o ID dos integrantes</h2>
+        <div id="id-section">
+            <div id="description">
+                <h2>Digite o ID dos integrantes</h2>
 
-            <p>O ID pode ser verificado na pulseira do acampante ou pelo QR Code de check-in</p>
-
-            <div id="inputId">
-                <div class="form-floating">
-                    <input name="id" class="form-control field field-color"
-                      inputmode="text" minlength="4" maxlength="4" autofocus
-                      type="text" placeholder="ID 1" autocomplete="off">
-                    <label for="ID 1" class="field-color">ID 1</label>
-                </div>
+                <p>O ID pode ser verificado na pulseira do acampante ou pelo QR Code de check-in</p>
             </div>
 
-            
+            <div class="form-floating mb-4">
+                <input id="inputId" class="form-control field field-color" inputmode="text" minlength="4" maxlength="4"
+                    autofocus type="text" placeholder="ID">
+                <label for="ID" class="field-color">ID</label>
+            </div>
+        </div>
+
+        <div id="cam-section">
+            <div class="video">
+                <video autoplay="true" id="webcam"></video>
+            </div>
         </div>
         
     </section>

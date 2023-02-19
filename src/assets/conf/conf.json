@@ -2,7 +2,8 @@
     "conf": [
         {
             "amountPictures": 3,
-            "timerValue": 5
+            "timerValue": 5,
+            "interval": 3
         }
     ]
 }
