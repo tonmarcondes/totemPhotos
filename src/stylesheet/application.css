@@ -18,7 +18,27 @@ section {
     padding-top: 200px;
 }
 
+#inputId {
+    text-transform: uppercase;
+}
+
 #webcam {
     transform: scaleX(-1);
 }
 
+.fundo {
+    background: url("../../public/totem.png");
+    width: 881px;
+    height: 1440px;
+    border: #f00 solid;
+}
+
+.overlay {
+    position: absolute;
+    background: url("../../public/overlay.png");
+    width: 881px;
+    height: 1440px;
+    background-size: contain;
+    border: #ff0 solid;
+    z-index: 2;
+}
