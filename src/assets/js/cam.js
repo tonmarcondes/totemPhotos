@@ -1,4 +1,4 @@
-let timerInitilValue;
+let secondsUntilStart;
 let timerInterval;
 let amountPictures;
 
@@ -8,19 +8,19 @@ const activeCamScreen = () => {
     openCamera();
 }
 
-const openCamera = () => {
+const openCamera = async () => {
     let video = document.querySelector("#webcam");
     adjustScreen();
-    startCounter(timerInitilValue, timerInterval, amountPictures);
+    startCounter(secondsUntilStart, timerInterval, amountPictures);
 
     if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'user', advanced: [{width: 1280, height: 720}]}})
-        .then( function(stream) {
-            video.srcObject = stream;
-        })
-        .catch(function(error) {
-            alert("Não foi possível iniciar a webcam.");
-        });
+        navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: 'user', advanced: [{ width: 1280, height: 720 }] } })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (error) {
+                alert("Não foi possível iniciar a webcam.");
+            });
     }
 }
 
@@ -32,20 +32,20 @@ const adjustScreen = () => {
 
 }
 
-function foto(){
-    let video = document.querySelector("#webcam");     
+function foto() {
+    let video = document.querySelector("#webcam");
     let canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     let ctx = canvas.getContext('2d');
-    
+
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-     
-    let dataURI = canvas.toDataURL('image/jpeg'); 
+
+    let dataURI = canvas.toDataURL('image/jpeg');
     setImgBase64InLocalStorage(dataURI);
 }
 
-const downloadFile = (name) =>{
+const downloadFile = (name) => {
     let nameFile = `${name}.jpg`;
     var link = document.createElement('link');
     link.href = document.querySelector('#base64').value;
@@ -68,16 +68,15 @@ const setImgBase64InLocalStorage = (value) => {
     }
 }
 
-fetch('../conf/conf.json').then((response) => {
+fetch('../assets/counter/conf.json').then((response) => {
     response.json().then((dados) => {
         dados.conf.map((config) => {
-            timerInitilValue = config.timerValue;
+            secondsUntilStart = config.timerValue;
             timerInterval = config.interval;
             amountPictures = config.amountPictures;
 
-            console.log(`amountPictures: ${amountPictures}\n
-            secondsUntilStart: ${secondsUntilStart}\n
-            interval: ${interval}`);
+            console.log(`amountPictures: ${amountPictures}\nsecondsUntilStart: ${secondsUntilStart}\ninterval: ${timerInterval}`);
         })
     })
 })
+

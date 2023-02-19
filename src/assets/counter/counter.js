@@ -1,16 +1,28 @@
-let timerInterval; // Representa o intervalo de tempo que está sendo executado	
-let timerValue = initialValue;
+let timerI; // Representa o intervalo de tempo que está sendo executado	
+let timerValue;
 let second; // Segundos correntes
-let interval = interval;
+let interval;
 let millisecond = 10; // Milisegundos correntes
-let amountPictures; // Quantidade de fotos que o usuário deseja tirar
+let amountPhotos; // Quantidade de fotos que o usuário deseja tirar
+
+const startCounter = (initialValue, intervalValue, amountPic) => {
+    timerValue = initialValue;
+    second = initialValue;
+    interval = intervalValue;
+    amountPhotos = amountPic;
+    timer.start();
+    activeSection('regressive');
+}
 
 const timer = {
     start: () => {
         timer.pause();
-        timerInterval = setInterval(() => {
+        timerI = setInterval(() => {
             timer.regressive();
         }, 10);
+    },
+    pause: () => {
+        clearInterval(timerInterval);
     },
     finish: () => {
         takePicture();
@@ -42,7 +54,7 @@ function returnData(input) {
 }
 
 function takePicture() {
-    for(let i = 0; i < amountPictures; i++) {
+    for(let i = 0; i < amountPhotos; i++) {
         console.log("Tirando foto");
     }
 }
@@ -52,10 +64,3 @@ function setText(second, millisecond){
     document.getElementById('millisecond').innerText = millisecond;
 }
 
-const startCounter = (initialValue, intervalValue, amountPic) => {
-    timerValue = initialValue;
-    second = initialValue;
-    interval = intervalValue;
-    amountPictures = amountPic;
-    timer.start();
-}
