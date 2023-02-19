@@ -18,3 +18,7 @@ section {
     padding-top: 200px;
 }
 
+#webcam {
+    transform: scaleX(-1);
+}
+

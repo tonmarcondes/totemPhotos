@@ -16,6 +16,7 @@
 }
 
 #secondaryTitle {
+    z-index: 5;
     font-size: 3rem;
     position: absolute;
     top: 20px;
