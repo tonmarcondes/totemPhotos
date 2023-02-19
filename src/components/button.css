@@ -1,0 +1,20 @@
+:root {
+    --button-size: 50px;
+}
+
+.button-primary {
+    background-color: var(--white);
+    color: var(--main-color);
+    border: none;
+    border-radius: 30px;
+    height: var(--button-size);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-primary:hover{
+    background-color: var(--secondary-color) !important;
+    color: var(--black) !important;
+}

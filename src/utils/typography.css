@@ -1,0 +1,18 @@
+/* Import Google Font - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+:root {
+    /*definir font family como variavel global montserrat*/
+    --font-family: 'Montserrat', sans-serif;
+    --color-text: #f5f5f5;
+}
+
+
+#mainTitle {
+    font-size: 5rem;
+}
+
+#secondaryTitle {
+    font-size: 3rem;
+    margin: 20px 65px;
+}

@@ -1,0 +1,10 @@
+.field {
+    border-radius: 12px;
+    box-shadow: 2px 2px 30px 5px rgb(206, 206, 206) inset;
+    width: 100%;
+    height: 45px;
+}
+
+.field-color {
+    color: #7d7d7d !important;
+}
