@@ -35,15 +35,17 @@ const timer = {
     regressive: () => {
         if ((millisecond -= 10) == 0) {
             if(second == 0) {
+                takePicture();
                 millisecond = 0;
+                interval--;
                 
                 if(interval == 0) {
                     timer.finish();
+                    downloadPhotos();
                 } else {
                     timer.pause();
                     millisecond = 10;
                     second = intervalBackup;
-                    interval--;
                     timer.start()
                     setText(returnData(second));
                 }
@@ -63,11 +65,6 @@ function returnData(input) {
     return input >= 10 ? input : `0${input}`
 }
 
-function takePicture() {
-    for(let i = 0; i < amountPhotos; i++) {
-        console.log("Tirando foto");
-    }
-}
 
 function setText(second){
     document.getElementById('second').innerText = second;

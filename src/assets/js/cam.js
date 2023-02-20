@@ -1,3 +1,4 @@
+let arrayImg = [];
 let secondsUntilStart;
 let timerInterval;
 let amountPictures;
@@ -32,7 +33,7 @@ const adjustScreen = () => {
 
 }
 
-function foto() {
+function takePicture() {
     let video = document.querySelector("#webcam");
     let canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
@@ -42,30 +43,44 @@ function foto() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     let dataURI = canvas.toDataURL('image/jpeg');
-    setImgBase64InLocalStorage(dataURI);
+    setImgBase64InArray(dataURI);
+}
+
+const downloadPhotos = () => {
+    let fileName = ''
+    arrayImg.forEach((img, index) => {
+        const id = localStorage.getItem("ID");
+        const idJSON = JSON.parse(id);
+        //fazer um laço para cada id e armazenar numa string
+        idJSON.forEach((id) => {
+            //verificar se é o ultimo elemento do array
+            if (idJSON.indexOf(id) === idJSON.length - 1) {
+                fileName += id;
+            } else {
+                fileName += `${id}&`;
+            }
+        })
+    })
+
+    downloadFile(fileName);
+    
+    localStorage.getItem("ID") ? localStorage.removeItem("ID") : null;
 }
 
 const downloadFile = (name) => {
+    // fazer download de todos os arquivos
+
     let nameFile = `${name}.jpg`;
     var link = document.createElement('link');
     link.href = document.querySelector('#base64').value;
-    link.download = nameFile
+    link.download = nameFile;
     link.click();
 
     document.querySelector('#base64').value = null;
 }
 
-const setImgBase64InLocalStorage = (value) => {
-    const arrayImg = localStorage.getItem("imgBase64");
-    if (arrayImg) {
-        const arrayImgJson = JSON.parse(arrayImg);
-        arrayImgJson.push(value);
-        localStorage.setItem("imgBase64", JSON.stringify(arrayImgJson));
-    } else {
-        const arrayImgJson = [];
-        arrayImgJson.push(ID);
-        localStorage.setItem("imgBase64", JSON.stringify(arrayImgJson));
-    }
+const setImgBase64InArray = (value) => {
+    arrayImg.push(value);
 }
 
 fetch('../assets/counter/conf.json').then((response) => {

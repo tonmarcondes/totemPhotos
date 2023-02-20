@@ -1,6 +1,8 @@
 
 window.onload = async () => {
     const body = document.querySelector("body");
+    //limpar o localstorage
+    localStorage.getItem("ID") ? localStorage.removeItem("ID") : null;
     
     body.addEventListener('keydown', async function (e) {
         if (e.ctrlKey && e.key === 'Enter') {
