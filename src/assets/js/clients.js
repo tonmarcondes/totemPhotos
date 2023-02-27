@@ -1,7 +1,6 @@
 
 window.onload = async () => {
     const body = document.querySelector("body");
-    //limpar o localstorage
     localStorage.getItem("ID") ? localStorage.removeItem("ID") : null;
     
     body.addEventListener('keydown', async function (e) {
@@ -15,7 +14,12 @@ window.onload = async () => {
             let IDCode = inputId.value;
             inputId.value = null;
             await findCamper(IDCode);
-        } 
+        }
+        
+        if (e.ctrlKey && e.key === 'r') {
+            disableSection('preview-section');
+            activeSection('id-section');
+        }
     })
 }
 
