@@ -23,13 +23,13 @@
     <link rel="stylesheet" href="../components/logo.css">
     <link rel="stylesheet" href="../components/field.css">
     <link rel="stylesheet" href="../components/regressive.css">
+    <link rel="stylesheet" href="../components/preview-photos.css">
 
     <!-- JavaScript File's -->
     <script src="../assets/counter/counter.js"></script>
     <script src="../assets/js/cam.js"></script>
     <script src="../assets/js/clients.js"></script>
     <script src="../assets/js/routes.js"></script>
-    
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/eac825cd8d.js" crossorigin="anonymous"></script>
@@ -37,14 +37,14 @@
     <!-- Shortcut Icon -->
     <link rel="shortcut icon" href="../../public/logo.png" type="image/png">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
     <!-- HTML5Shiv -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <![endif]-->
 
     <title>Totem de Fotos</title>
-
-
 </head>
 
 <body>
@@ -55,14 +55,14 @@
 
         <div id="id-section">
             <div id="description">
-                <h2>Digite o ID dos integrantes</h2>
+                <h2>Digite o(s) ID do(s) integrante(s)</h2>
 
                 <p>O ID pode ser verificado na pulseira do acampante ou pelo QR Code de check-in</p>
             </div>
 
             <div class="form-floating mb-4">
-                <input id="inputId" class="form-control field field-color" inputmode="text" minlength="4" maxlength="4"
-                    autofocus type="text" placeholder="ID">
+                <input id="inputId" class="form-control field field-color text-uppercase" inputmode="text" minlength="4"
+                    maxlength="4" autofocus type="text" placeholder="ID">
                 <label for="ID" class="field-color">ID</label>
             </div>
         </div>
@@ -76,23 +76,26 @@
                 <span id="second">00</span>
             </div>
         </div>
-        <div id="photo-section">
+
+        <div id="preview-section" class="d-none">
             <div class="overlay"></div>
-            <div class="fotos">
-                <div class="foto1"></div>
-                <div class="foto2"></div>
-                <div class="foto3"></div>
-            </div>
-            <div class="fundo"></div>
+            <div id="preview" class="preview-background"></div>
+
+            <!-- <button id="downloadButton" class="btn button-primary mt-3 mb-3" onclick="downloadPhotos()">
+                <i class="fa-solid fa-circle-down"></i>
+                Fazer Download
+            </button> -->
         </div>
 
     </section>
 
     <footer>
-        <img class="img-fluid secondary-logo" src="../../public/deeper-white.png" alt="">
+        <img id="secondaryLogo" class="img-fluid secondary-logo" src="../../public/deeper-white.png" alt="">
     </footer>
 
-    
+    <script>
+        localStorage.clear();
+    </script>
 </body>
 
 </html>

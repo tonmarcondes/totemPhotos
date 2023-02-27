@@ -29,8 +29,6 @@ const adjustScreen = () => {
     let section = document.querySelector("section");
     section.style.height = "100%";
     section.style.width = "100%";
-    //remover todas margins e paddings
-
 }
 
 function takePicture() {
@@ -46,38 +44,67 @@ function takePicture() {
     setImgBase64InArray(dataURI);
 }
 
+const activePreviewPhotos = () => {
+    disableSection("cam-section");
+    disableSection("secondaryTitle");
+    disableSection("secondaryLogo");
+    activeSection("preview-section");
+
+    let preview = document.querySelector("#preview");
+
+    for (let i = 0; i < arrayImg.length; i++) {
+        let img = document.createElement("img");
+        img.src = arrayImg[i];
+        img.classList.add("photos");
+        preview.appendChild(img);
+    }
+}
+
 const downloadPhotos = () => {
     let fileName = ''
-    arrayImg.forEach((img, index) => {
-        const id = localStorage.getItem("ID");
-        const idJSON = JSON.parse(id);
-        //fazer um laço para cada id e armazenar numa string
-        idJSON.forEach((id) => {
-            //verificar se é o ultimo elemento do array
-            if (idJSON.indexOf(id) === idJSON.length - 1) {
-                fileName += id;
-            } else {
-                fileName += `${id}&`;
-            }
-        })
+    const id = localStorage.getItem("ID");
+    const idJSON = JSON.parse(id);
+
+    idJSON.forEach((id) => {
+        if (idJSON.indexOf(id) === idJSON.length - 1) {
+            fileName += id;
+        } else {
+            fileName += `${id}&`;
+        }
     })
 
     downloadFile(fileName);
-    
     localStorage.getItem("ID") ? localStorage.removeItem("ID") : null;
 }
 
 const downloadFile = (name) => {
-    // fazer download de todos os arquivos
+    /*Download the all images
+    arrayImg.forEach((img, index) => {
+         var link = document.createElement('a');
+        link.setAttribute('href', img);
+        link.setAttribute('download', nameFile);
+        link.click();
+    })*/
 
-    let nameFile = `${name}.jpg`;
-    var link = document.createElement('link');
-    link.href = document.querySelector('#base64').value;
-    link.download = nameFile;
-    link.click();
-
-    document.querySelector('#base64').value = null;
+    //Download the card
+    let nameFile = `${name}.png`;
+    html2canvas(document.getElementById('preview-section')).then(function (canvas) {
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = function () {
+            let a = document.createElement('a');
+            a.href = window.URL.createObjectURL(xhr.response);
+            a.download = nameFile;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            a.remove()
+        };
+        xhr.open('GET', canvas.toDataURL("image/png", 1.0));
+        xhr.send();
+    });
 }
+
 
 const setImgBase64InArray = (value) => {
     arrayImg.push(value);
@@ -89,8 +116,6 @@ fetch('../assets/counter/conf.json').then((response) => {
             secondsUntilStart = config.timerValue;
             timerInterval = config.interval;
             amountPictures = config.amountPictures;
-
-            console.log(`amountPictures: ${amountPictures}\nsecondsUntilStart: ${secondsUntilStart}\ninterval: ${timerInterval}`);
         })
     })
 })

@@ -1,8 +1,3 @@
-:root {
-    --largura: 881px;
-    --altura: 1440px;
-}
-
 body {
     font-family: var(--font-family);
     background: var(--main-color);
@@ -19,58 +14,9 @@ section {
     font-size: 1.2rem;
 }
 
-#description {
-    padding-top: 200px;
-}
-
-#inputId {
-    text-transform: uppercase;
-}
 
 #webcam {
     transform: scaleX(-1);
+    width: 95%;
 }
 
-.fundo {
-    background: url("../../public/totem.png");
-    background-size: cover;
-    width: var(--largura);
-    height: var(--altura);
-    border: #f00 solid;
-}
-
-.fotos {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: var(--largura);
-    height: var(--altura);
-    border: solid;
-    padding: 5em;
-}
-
-.fotos > div {
-    color: #f00;
-    width: calc(var(--largura) - 20%) ;
-    height: calc(var(--largura) / 1.7777);
-    background-color: #000;
-    background: url("../../img/Image.jpg") no-repeat;
-    margin-top: 1em;
-}
-
-.foto1 {
-    background-size: cover;
-    /* background: url("../../img/Image.jpg") no-repeat; */
-}
-
-.overlay {
-    position: absolute;
-    background: url("../../public/overlay.png");
-    width: var(--largura);
-    height: var(--altura);
-    background-size: cover;
-    border: #ff0 solid;
-    z-index: 2;
-}

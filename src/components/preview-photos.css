@@ -1,0 +1,38 @@
+:root {
+    --width-preview: 881px;
+    --height-preview: 1440px;
+}
+
+#preview-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-background {
+    background: url("../../public/totem.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--width-preview);
+    height: var(--height-preview);
+    padding: 5em;
+}
+
+.photos {
+    width: calc(var(--width-preview) - 20%) ;
+    height: calc(var(--width-preview) / 1.7777);
+    margin-top: 1.2em;
+}
+
+.overlay {
+    position: absolute;
+    background: url("../../public/overlay.png");
+    width: var(--width-preview);
+    height: var(--height-preview);
+    background-size: cover;
+    z-index: 2;
+}
