@@ -2,4 +2,4 @@
 
 Sistema de totem de fotos para eventos
 
-![Teste](./img/contagemTotem.png)
+![Teste](./public/tela.png)
