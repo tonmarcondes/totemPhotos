@@ -10,13 +10,19 @@ body {
     background-attachment: fixed;
     height: 100vh;
     display: flex;
-    align-items: center;
+    padding-top: 10vh;
+    /* align-items: center; */
     justify-content: center;
 }
 section {
     width: 100%;
     max-width: 1200px;
-    margin: auto !important;
+    /* margin: auto !important; */
     text-align: center;
     color: white;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 1rem 0;;
 }

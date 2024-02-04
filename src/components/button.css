@@ -2,19 +2,19 @@
     --button-size: 50px;
 }
 
-.button-primary {
-    background-color: var(--white);
-    color: var(--main-color);
+button {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    padding: 10px 20px;
     border: none;
-    border-radius: 30px;
-    height: var(--button-size);
-    font-size: 1.5rem;
-    font-weight: bold;
+    border-radius: 5px;
+    background-color: #E83F28 !important;
+    color: #FFFFFF !important;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
-.button-primary:hover{
-    background-color: var(--secondary-color) !important;
-    color: var(--black) !important;
+button:hover{
+    background-color: #A51D05 !important;
+    color: var(--white)#CECECE !important;
 }

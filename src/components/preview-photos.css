@@ -8,11 +8,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url("../../public/totem.png");
 }
 
 .preview-background {
-    background: url("../../public/totem.png");
-    background-size: cover;
+    background-size: contain;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

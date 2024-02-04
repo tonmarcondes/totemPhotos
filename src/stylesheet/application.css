@@ -14,6 +14,11 @@ section {
     font-size: 1.2rem;
 }
 
+.logo {
+    position: absolute;
+    bottom: -100px;
+    right: 0px;
+}
 
 #webcam {
     transform: scaleX(-1);

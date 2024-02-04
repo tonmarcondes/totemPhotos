@@ -1,18 +1,16 @@
 .main-logo {
-    width: 390px;
-    height: 70px;
+    width: 54vw;
     position: absolute;
-    bottom: 60px;
+    bottom: 0px;
     left: 0;
     right: 0;
     margin: auto;
 }
 
 .secondary-logo {
-    width: 390px;
-    height: 70px;
+    width: 20vw;
     position: absolute;
-    bottom: 40px;
-    right: 100px;
+    bottom: 0px;
+    left: 5vw;
     margin: auto;
 }
