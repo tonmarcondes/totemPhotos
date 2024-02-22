@@ -9,6 +9,11 @@ const activeCamScreen = () => {
     openCamera();
 }
 
+const playSound = () => {
+    let audio = new Audio('../sounds/camera.mp3');
+    audio.play();
+}
+
 const openCamera = async () => {
     let video = document.querySelector("#webcam");
     adjustScreen();
