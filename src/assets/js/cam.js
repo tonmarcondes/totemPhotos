@@ -10,7 +10,7 @@ const activeCamScreen = () => {
 }
 
 const playSound = () => {
-    let audio = new Audio('../sounds/camera.mp3');
+    let audio = new Audio('../assets/sounds/camera.mp3');
     audio.play();
 }
 
@@ -42,7 +42,7 @@ function takePicture() {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     let ctx = canvas.getContext('2d');
-
+    
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     let dataURI = canvas.toDataURL('image/jpeg');

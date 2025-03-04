@@ -31,6 +31,7 @@ const timer = {
     regressive: () => {
         if ((millisecond -= 10) == 0) {
             if (second == 0) {
+                // playSound();
                 takePicture();
                 millisecond = 0;
                 amountPhotos--;
